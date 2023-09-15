@@ -1,0 +1,54 @@
+<form
+  action="{{ url_for('edit') }}"
+  method="post"
+  enctype="multipart/form-data"
+>
+  {% if mesage is defined and mesage %}
+  <div class="alert alert-warning">{{ mesage }}</div>
+  {% endif %}
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      name="name"
+      value="{{ editUser.name }}"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="country">Country:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="country"
+      name="country"
+      value="{{ editUser.country }}"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="avatar">Profile Picture:</label>
+    <input type="file" id="avatar" name="avatar" />
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="description"
+      name="description"
+      value="{{ editUser.description }}"
+    />
+  </div>
+
+  <input
+    type="hidden"
+    id="userid"
+    name="userid"
+    value="{{ editUser.userid }}"
+  />
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
