@@ -235,12 +235,6 @@ def goods_list(supercat_id=None):
     return render_template('home/goods_list.html', page_data=page_data, hot_goods=hot_goods, supercat_id=supercat_id)
 
 
-# Add the remaining routes using a similar pattern
-
-app = Flask(__name__)
-mysql = MySQL(app)
-
-
 @app.route("/goods_detail/<int:id>/")
 def goods_detail(id=None):
     user_id = session.get('user_id', 0)
