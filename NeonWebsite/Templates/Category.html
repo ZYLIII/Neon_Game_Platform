@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Static/public/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <title>Category</title>
+</head>
+<body>
+    <div class="header">
+        <nav>
+         <a href="/Templates/Homepage.html"><img src="/Static/img/NeonGamelogo.png" alt="logo"></a>   
+         <div class="nav-links" id="navLinks">
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="/Templates/Explore.html">Explore</a></li>
+                <li><a href="/Templates/Category.html">Category</a>
+                    <div class="sub-menu">
+                        <ul>
+                            <li><a href="">Action</a></li>
+                            <li><a href="">Advanture</a></li>
+                            <li><a href="">Simulation</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="/Templates/Login.html">Login/Register</a></li> 
+                <li><a href="#">Contact Us</a></li>
+                <input class="search" type="search" placeholder="Search...">
+            </ul>
+         </div>
+         <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </div>
+
+    <div class="fontcategory">Top Free</div>
+    <div class="Category">
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g1.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="/Templates/Game.html" class="box">Read More</a>
+        </div>
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g2.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="/Templates/Game.html" class="box">Read More</a>
+        </div>
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g3.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="/Templates/Game.html" class="box">Read More</a>
+        </div>
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g3.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="/Templates/Game.html" class="box">Read More</a>
+        </div>
+    </div>
+
+    <div class="fontcategory">Top Paid</div>
+    <div class="Category">
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g1.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="" class="box">Read More</a>
+        </div>
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g2.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="" class="box">Read More</a>
+        </div>
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g3.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="" class="box">Read More</a>
+        </div>
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g3.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="" class="box">Read More</a>
+        </div>
+        
+    </div>
+
+    <div class="fontcategory">Top Grossing</div>
+    <div class="Category">
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g1.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="" class="box">Read More</a>
+        </div>
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g2.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="" class="box">Read More</a>
+        </div>
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g3.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="" class="box">Read More</a>
+        </div>
+        <div>
+            <a class= "link" href=""><img  class="book" src="/Static/img/g3.jpeg" alt=""></a>
+            <a class="linktext" href=""><h2></h2></a>
+            <a href="" class="box">Read More</a>
+        </div>
+        
+    </div>
+
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+    </script>
+</body>
+</html>
