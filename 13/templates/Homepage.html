@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <title>Welcome to Neon Game</title>
+    <style>
+    .header-homepage{
+        min-height: 100vh;
+        width: 100%;
+        background: linear-gradient(rgba(4, 4, 4, 0.546), rgba(0, 0, 0, 0.5)),url(/img/g1.jpeg);
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+    </style>
+</head>
+<body>
+    <div class="header-homepage">
+        <nav>
+         <a href="Homepage.html"><img class="logo" src="/img/NeonGamelogo.png" alt="logo"></a>   
+         <div class="nav-links" id="navLinks">
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="Explore.html">Explore</a></li>
+                <li><a href="Category.html">Category</a>
+                    <div class="sub-menu">
+                        <ul>
+                            <li><a href="">Action</a></li>
+                            <li><a href="">Advanture</a></li>
+                            <li><a href="">Simulation</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="Login-Register.html">Login/Register</a></li> 
+                <li><a href="#">Contact Us</a></li>
+                <input class="search" type="search" placeholder="Search...">
+            </ul>
+         </div>
+         <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="text-box">
+            <h1>Welcome come to<br> Neon Game</h1>
+            <p>The place where you can enjoy your joy.</p>
+            <a href="Explore.html" class="button">Explore</a>
+        </div>
+    </div>
+        <script>
+            var navLinks = document.getElementById("navLinks");
+            function showMenu(){
+                navLinks.style.right = "0";
+            }
+            function hideMenu(){
+                navLinks.style.right = "-200px";
+            }
+        </script>
+
+</body>
+</html>
