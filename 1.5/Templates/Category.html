@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Game Categories</title>
+  </head>
+  <body>
+    <h1>Top Categories</h1>
+
+    <h2>Top Free Games</h2>
+    <ul>
+      {% for game in top_free %}
+      <a href="{{ url_for('game_detail', game_id=game.game_id) }}"
+        >{{ game.name }}</a
+      >
+      {% endfor %}
+    </ul>
+
+    <h2>Top Paid Games</h2>
+    <ul>
+      {% for game in top_paid %}
+      <a href="{{ url_for('game_detail', game_id=game.game_id) }}"
+        >{{ game.name }}</a
+      >
+      {% endfor %}
+    </ul>
+
+    <h2>Top Grossing Games</h2>
+    <ul>
+      {% for game in top_grossing %}
+      <a href="{{ url_for('game_detail', game_id=game.game_id) }}"
+        >{{ game.name }}</a
+      >
+      {% endfor %}
+    </ul>
+  </body>
+</html>
