@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Register</title>
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <a href="/14/Templates/Homepage.html"
+          ><img
+            src="{{ url_for('static', filename='img/NeonGamelogo.png') }}"
+            alt="logo"
+        /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="/14/Templates/Explore.html">Explore</a></li>
+            <li>
+              <a href="/14/Templates/Category.html">Category</a>
+              <div class="sub-menu">
+                <ul>
+                  <li><a href="">Action</a></li>
+                  <li><a href="">Advanture</a></li>
+                  <li><a href="">Simulation</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="/14/Templates/Login.html">Login/Register</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <input class="search" type="search" placeholder="Search..." />
+          </ul>
+        </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+      </nav>
+    </div>
+    <div class="wrapper-register">
+      <div class="from-box-register">
+        <h1>Register</h1>
+        <br />
+        <div class="input-register">
+          <ul class="input-in4">
+            <li>
+              Name:
+              <input
+                type="text"
+                placeholder="Enter Your Name"
+                name="name"
+                required
+              />
+            </li>
+            <li>
+              Contact Number:
+              <input
+                type="text"
+                placeholder="Enter Your Contact No."
+                name="number"
+                required
+              />
+            </li>
+            <li>
+              Email:
+              <input
+                type="text"
+                placeholder="Enter Your E-mail"
+                name="email"
+                required
+              />
+            </li>
+            <li>
+              Password:
+              <input
+                type="password"
+                placeholder="Enter Your Password"
+                name="psw"
+                required
+              />
+            </li>
+            <li>
+              Repeat Password:
+              <input
+                type="password"
+                placeholder="Repeat Your Password"
+                name="psw-repeat"
+                required
+              />
+            </li>
+          </ul>
+
+          <button type="submit" class="registerbutton">Register</button>
+
+          <p>
+            By creating an account you agree to our <br />
+            <a href="#">Terms & Privacy</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      var navLinks = document.getElementById("navLinks");
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+  </body>
+</html>
