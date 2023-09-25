@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Edit User</title>
+  </head>
+  <body>
+    <h1>Edit User</h1>
+    <form method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" value="{{ editUser.name }}" required />
+      <label for="contact_number">Contact Number:</label>
+      <input
+        type="text"
+        name="contact_number"
+        value="{{ editUser.contact_number }}"
+        required
+      />
+      <input type="hidden" name="userid" value="{{ editUser.userid }}" />
+      <button type="submit">Update</button>
+    </form>
+    {% if msg %}
+    <p>{{ msg }}</p>
+    {% endif %}
+  </body>
+</html>
