@@ -26,6 +26,10 @@ def static_files(filename):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     message = ''  # Initialize message with an empty string
+    if 'loggedin' in session:
+        message = 'Another user is already logged in!'
+        return render_template('Login.html', message=message), 403  # Return 403 Forbidden
+        
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
         email = request.form['email']
         password = request.form['password']
@@ -86,69 +90,83 @@ def register():
 
     return render_template('register.html', message=message)
 
-
-
-
 @app.route("/users", methods=['GET', 'POST'])
 def users():
     if 'loggedin' in session:
+        userid = session['userid']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user')
-        users = cursor.fetchall()
-        return render_template("users.html", users=users)
-    return redirect(url_for('Login'))
+        cursor.execute('SELECT * FROM user WHERE userid = %s', (userid,))
+        user = cursor.fetchone()
+        return render_template("users.html", user=user)
+    return redirect(url_for('login'))
 
 
 @app.route("/edit", methods=['GET', 'POST'])
 def edit():
     msg = ''
     if 'loggedin' in session:
-        editUserId = request.args.get('userid')
+        userid = session['userid']  # get the user id from the session
+        
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user WHERE userid = %s', (editUserId, ))
-        editUser = cursor.fetchone()
-        if request.method == 'POST' and 'name' in request.form and 'userid' in request.form and 'contact_number' in request.form:
+        cursor.execute('SELECT * FROM user WHERE userid = %s', (userid, ))
+        user = cursor.fetchone()
+        
+        if request.method == 'POST' and 'name' in request.form and 'contact_number' in request.form:
             userName = request.form['name']
             contact_number = request.form['contact_number']
-            userId = request.form['userid']
+            
             if not re.match(r'[A-Za-z0-9]+', userName):
-                msg = 'name must contain only characters and numbers !'
+                msg = 'Name must contain only characters and numbers!'
             else:
-                cursor.execute('UPDATE user SET name = %s, contact_number = %s WHERE userid = %s', (
-                    userName, contact_number, userId))
+                cursor.execute('UPDATE user SET name = %s, contact_number = %s WHERE userid = %s', (userName, contact_number, userid))
                 mysql.connection.commit()
-                msg = 'User updated !'
+                msg = 'User updated!'
                 return redirect(url_for('users'))
         elif request.method == 'POST':
-            msg = 'Please fill out the form !'
-        return render_template("edit.html", msg=msg, editUser=editUser)
-    return redirect(url_for('Login'))
-
+            msg = 'Please fill out the form!'
+        return render_template("edit.html", msg=msg, user=user)
+    return redirect(url_for('login'))  # Changed 'Login' to 'login' to match the correct route name.
 
 
 @app.route("/password_change", methods=['GET', 'POST'])
 def password_change():
-    mesage = ''
+    msg = ''  # Maintain a consistent variable name for the message.
     if 'loggedin' in session:
-        changePassUserId = request.args.get('userid')
-        if request.method == 'POST' and 'password' in request.form and 'confirm_pass' in request.form and 'userid' in request.form:
+        userid = session['userid']  # Retrieve userid from the session.
+        
+        if request.method == 'POST' and 'password' in request.form and 'confirm_pass' in request.form:
             password = request.form['password']
             confirm_pass = request.form['confirm_pass']
-            userId = request.form['userid']
+            
             if not password or not confirm_pass:
-                mesage = 'Please fill out the form !'
+                msg = 'Please fill out the form!'
             elif password != confirm_pass:
-                mesage = 'Confirm password is not equal!'
+                msg = 'Passwords do not match!'
             else:
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-                cursor.execute(
-                    'UPDATE user SET  password =% s WHERE userid =% s', (password, (userId, ), ))
+                hashed_password = hashlib.sha256(password.encode()).hexdigest()
+                
+                cursor.execute('UPDATE user SET password = %s WHERE userid = %s', (hashed_password, userid))
                 mysql.connection.commit()
-                mesage = 'Password updated !'
+                msg = 'Password updated successfully!'
+                
         elif request.method == 'POST':
-            mesage = 'Please fill out the form !'
-        return render_template("password_change.html", mesage=mesage, changePassUserId=changePassUserId)
-    return redirect(url_for('Login'))
+            msg = 'Please fill out the form!'
+        
+        return render_template("password_change.html", msg=msg, userid=userid)
+    return redirect(url_for('login'))  # Maintain a consistent case in redirect URL.
+
+
+@app.route('/logout')
+def logout():
+    # Clear the user's session
+    session.pop('loggedin', None)
+    session.pop('userid', None)
+    session.pop('name', None)
+    session.pop('email', None)
+    
+    # Redirect to the login page
+    return redirect(url_for('login'))
 
 
 @app.route("/delete/<int:userid>", methods=['POST'])
