@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Game Categories</title>
+  </head>
+  <body>
+    <h1>Categories</h1>
+
+    <h2>Free Games</h2>
+    <ul>
+      {% for game in top_free %}
+      <li>
+        <a href="{{ url_for('game_detail', game_id=game.game_id) }}">
+          <img src="{{ game.image_url }}" alt="{{ game.name }} image" width="100">
+          {{ game.name }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h2>Paid Games</h2>
+    <ul>
+      {% for game in top_paid %}
+      <li>
+        <a href="{{ url_for('game_detail', game_id=game.game_id) }}">
+          <img src="{{ game.image_url }}" alt="{{ game.name }} image" width="100">
+          {{ game.name }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h2>Grossing Games</h2>
+    <ul>
+      {% for game in top_grossing %}
+      <li>
+        <a href="{{ url_for('game_detail', game_id=game.game_id) }}">
+          <img src="{{ game.image_url }}" alt="{{ game.name }} image" width="100">
+          {{ game.name }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
