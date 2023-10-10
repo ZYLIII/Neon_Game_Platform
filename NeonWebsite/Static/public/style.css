@@ -99,7 +99,6 @@ nav img{
 
 .button:hover{
     border: 1px solid #69f436;
-   
     background: #69f436;
     transition: 0.5s;;
 }
@@ -117,7 +116,7 @@ nav .fa-solid {
     background-position: 2% 50%;
     background-repeat: no-repeat;
     background-size: 30px;
-    background-image: url(/img/searchicon.png);
+    background-image: url(/Static/img/searchicon.png);
     background-color: transparent;
     transition: 0.5s all ease-in-out;
     filter: brightness(100%);
@@ -166,21 +165,54 @@ nav .fa-solid {
     background-color: rgba(19, 104, 13, 0.559);
     height: 100px;
 }
-.body-explore{
-    width: 197vmin;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left:50%;
-    overflow: hidden;
-    background: linear-gradient(rgba(4, 4, 4, 0.546), rgba(0, 0, 0, 0.5));
-}
 .wrapper{
     width: 10px;
     height: 350px;
     display: flex;
-    animation: slide 16s infinite;
+    animation: slide 15s infinite;
 }
+.ftct-epl{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    
+}
+.ftct-epl li{
+    float: left;
+}
+.ftct-epl a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: 'Apple Chancery', sans-serif ;
+}
+.active:hover{
+    color: greenyellow;
+}
+.body-explore{
+    width: 197vmin;
+    position:absolute;
+    transform: translate(-50%,-50%);
+    top: 51%;
+    left:50%;
+    overflow: hidden;
+    background: linear-gradient(rgba(4, 4, 4, 0.546), rgba(0, 0, 0, 0.5));
+}
+.body-explore-2{
+    width: 197vmin;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 110%;
+    left:50%;
+    overflow: hidden;
+    background: linear-gradient(rgba(4, 4, 4, 0.546), rgba(0, 0, 0, 0.5));
+}
+
 @keyframes slide{
     0%{
         transform: translate(0);
@@ -220,7 +252,7 @@ nav .fa-solid {
 }
 
 
-.book{
+.game{
     width: 250px;
     border: 3px;
     border-color: #000000;
@@ -261,7 +293,7 @@ h2{
 }
   
 
-.bookname{
+.gamename{
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     word-wrap: break-word;
@@ -360,7 +392,7 @@ li{
 .registerbutton:hover {
 	background-color: greenyellow;
 }
-/* Book Detail */
+/* Game Detail */
 .sections{
     text-align:left;
     font-size: 25px;
@@ -372,29 +404,29 @@ li{
 .sections :hover{
     color: rgb(228, 159, 56);
 }
-.bookdetail{
+.gamedetail{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 100px 0;
 }
-.bookin4{
+.gamein4{
     flex-basis: 40%;
     position: relative;
     margin-left: 50px;
 }
-.bookin4 h2{
+.gamein4 h2{
     font-size: 40px;
     color: white;
 }
-.bookin4 p{
+.gamein4 p{
     text-align: justify;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     font-size: 20px;
     padding: 20px;
 }
-.bookin4 h4{
+.gamein4 h4{
     margin: 30px 0;
     color: white;
     font-size: 20px;
@@ -410,18 +442,24 @@ button{
     transition: 0.3s;
     font-size: 17px;
 }
+
+.function{
+    display: block;
+    justify-items: flex-end;
+}
+
 button:hover{
-    background-color: rgb(228, 159, 56);
+    background-color: rgb(84, 84, 84);
     color: white;
 }
-.bookcover{
+.gamecover{
     flex-basis: 60%;
     display: flex;
     padding: 10px;
     justify-content: center;
 
 }
-.bookcover .books{
+.gamecover .game{
     width: 90%;
 }
 
@@ -434,7 +472,7 @@ button:hover{
         flex-basis: 100%;
         margin-bottom: 50px;
     }
-    .col-3 .books{
+    .col-3 .games{
         width: 77%;
     }
     .col-1{
