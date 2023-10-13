@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>User Library</title>
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <a href="{{ url_for('homepage') }}"
+          ><img src="/Static/img/NeonGamelogo.png" alt="logo"
+        /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="{{ url_for('homepage') }}">Home</a></li>
+            <li><a href="{{ url_for('explore') }}">Explore</a></li>
+            <li>
+              <a href="{{ url_for('category') }}">Category</a>
+              <div class="sub-menu">
+                <ul>
+                  <li><a href="">Action</a></li>
+                  <li><a href="">Advanture</a></li>
+                  <li><a href="">Simulation</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="{{ url_for('library') }}">Library</a></li>
+            <li><a href="{{ url_for('cart') }}">Cart</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('users') }}">User</a></li>
+            <input class="search" type="search" placeholder="Search..." />
+          </ul>
+        </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+      </nav>
+    </div>
+
+    <h1 class="library-title">User Library</h1>
+    <p class="wallet-balance">Wallet Balance: ${{ wallet_balance }}</p>
+
+    {% if items %}
+    <ul class="library-list">
+      {% for item in items %}
+      <li class="library-item">
+        <img
+          src="{{ item.image_url }}"
+          alt="{{ item.name }}"
+          class="game-image"
+        />
+        <a
+          class="game-link"
+          href="{{ url_for('game_detail', game_id=item.game_id) }}"
+        >
+          {{ item.name }}
+        </a>
+        <span class="game-price"> ${{ item.price }}</span>
+        <form
+          class="sell-game-form"
+          method="POST"
+          action="{{ url_for('sell_game', game_id=item.game_id) }}"
+        >
+          <input class="sell-button" type="submit" value="Sell" />
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="empty-library-message">Your library is empty!</p>
+    {% endif %}
+  </body>
+</html>

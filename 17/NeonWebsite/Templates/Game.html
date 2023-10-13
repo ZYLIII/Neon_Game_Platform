@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Static/public/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <title>Game</title>
+</head>
+<body>
+    <div class="header">
+        <nav>
+         <a href="/Templates/Homepage.html"><img src="/Static/img/NeonGamelogo.png" alt="logo"></a>   
+         <div class="nav-links" id="navLinks">
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="/Templates/Explore.html">Explore</a></li>
+                <li><a href="/Templates/Category.html">Category</a>
+                    <div class="sub-menu">
+                        <ul>
+                            <li><a href="">Action</a></li>
+                            <li><a href="">Advanture</a></li>
+                            <li><a href="">Simulation</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="/Templates/Login.html">Login/Register</a></li> 
+                <li><a href="#">Contact Us</a></li>
+                <input class="search" type="search" placeholder="Search...">
+            </ul>
+         </div>
+         <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </div>
+
+    <div class="bookdetail">
+        <div class="bookcover">
+            <img src="/Static/img/g1.jpeg" alt="books" width="300">
+        </div>
+        <div class="bookin4">
+            <h2>The Hush</h2>
+            <p>It's been years since language was outlawed. Speech, writing, all sacrificed for the sake of Unity.
+                <br>
+                <br>
+                A small-town teacher dying from cancer can't remember the last time she spoke to her husband. Their life has been filled with resentment and tragedy, but burying their grievances in the silence helps them endure.
+                <br>
+                <br>
+                They both have hard decisions to make when Corvo – a living crime – breaks into their farmhouse. Unlike other children, her vocal cords haven't been removed at birth. Words rush back into the couple’s lives and, for the first time in years, they'll have to face the damage silence has done to them.
+                <br>
+                <br>
+                If that doesn't destroy them, the town's Sheriff will. She sees Corvo as a chance to regain some sanity in a world she herself helped make silent, and will stop at nothing to get her.</p>
+            <h4>$10,99</h4>
+            <button type="button">Add to Cart</button>
+        </div>
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+    </script>
+</body>
+</html>

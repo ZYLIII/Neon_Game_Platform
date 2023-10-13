@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <a href="{{ url_for('homepage') }}"
+          ><img src="/Static/img/NeonGamelogo.png" alt="logo"
+        /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="{{ url_for('homepage') }}">Home</a></li>
+            <li><a href="{{ url_for('explore') }}">Explore</a></li>
+            <li>
+              <a href="{{ url_for('category') }}">Category</a>
+              <div class="sub-menu">
+                <ul>
+                  <li><a href="">Action</a></li>
+                  <li><a href="">Advanture</a></li>
+                  <li><a href="">Simulation</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="{{ url_for('library') }}">Library</a></li>
+            <li><a href="{{ url_for('cart') }}">Cart</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('users') }}">User</a></li>
+            <input class="search" type="search" placeholder="Search..." />
+          </ul>
+        </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+      </nav>
+    </div>
+
+    <div class="login-container">
+      <h1>Login</h1>
+      <form method="POST" action="#">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div>
+          <input type="checkbox" id="remember_me" name="remember_me" />
+          <label for="remember_me">Remember Me</label>
+          <a href="#">Forget Password ?</a>
+        </div>
+        <button type="submit">Login</button>
+        <p>
+          Don't have an account <a href="{{ url_for('register') }}">Register</a>
+        </p>
+      </form>
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+    </div>
+
+    <script>
+      var navLinks = document.getElementById("navLinks");
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+  </body>
+</html>
