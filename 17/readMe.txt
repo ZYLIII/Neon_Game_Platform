@@ -5,5 +5,4 @@ The Witcher 3: Wild Hunt You are Geralt of Rivia, a monster slayer who gets paid
 Cyberpunk 2077  Play as V, a cyberpunk mercenary who will stop at nothing to make a name for himself in Night City. It was a colorful super metropolis. Changes of power and endless body modifications are constant themes. Legends are born here. So what will your legend be?   https://pic.imgdb.cn/item/651f1a1fc458853aef6f6677.jpg
 Grand Theft Auto V  When a young street hustler, a retired bank robber, and a terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government, and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody — least of all each other.    https://pic.imgdb.cn/item/651f1a37c458853aef6f6a98.jpg
 
-https://s1.wzznft.com/i/2023/10/13/fiiofj.jpg
-
+https://free.wzznft.com/i/2023/10/13/dhuxa2.png

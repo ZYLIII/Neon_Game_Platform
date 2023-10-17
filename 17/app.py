@@ -11,7 +11,7 @@ app.secret_key = 'xyzsdfg'
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '991105'
+app.config['MYSQL_PASSWORD'] = 'lzy991105'
 app.config['MYSQL_DB'] = 'web'
 
 mysql = MySQL(app)
@@ -196,16 +196,16 @@ def category():
 
     # Fetching Random Free Games where price is 0 or NULL
     cursor.execute(
-        'SELECT * FROM games WHERE price IS NULL OR price = 0 ORDER BY RAND() LIMIT 5')
+        'SELECT * FROM games WHERE price IS NULL OR price = 0 ORDER BY RAND() LIMIT 4')
     top_free_games = cursor.fetchall()
 
     # Fetching Random Paid Games
     cursor.execute(
-        'SELECT * FROM games WHERE price > 0 ORDER BY RAND() LIMIT 5')
+        'SELECT * FROM games WHERE price > 0 ORDER BY RAND() LIMIT 4')
     top_paid_games = cursor.fetchall()
 
     # Fetching Grossing Games ordered by download count
-    cursor.execute('SELECT * FROM games ORDER BY downloads DESC LIMIT 5')
+    cursor.execute('SELECT * FROM games ORDER BY downloads DESC LIMIT 4')
     top_grossing_games = cursor.fetchall()
 
     return render_template('Category.html', top_free=top_free_games, top_paid=top_paid_games, top_grossing=top_grossing_games)
@@ -370,4 +370,4 @@ def sort():
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=5900, debug=True)
+    app.run(host='127.0.0.1', port=5900, debug=False)

@@ -478,6 +478,7 @@ button:hover {
 .game-image {
   width: 300px;
   margin-right: 50px;
+  margin-left: 20%;
 }
 
 .game-text,
@@ -487,7 +488,7 @@ button:hover {
   font-family: Arial, sans-serif;
 }
 .game-price {
-  margin-left: 400px;
+  margin-left: 350px;
 }
 
 .cart-title {
@@ -498,7 +499,9 @@ button:hover {
 }
 
 .cart-text {
+  text-align: center;
   color: #ffffff;
+  font-size: 20px;
 }
 
 .cart-items {
